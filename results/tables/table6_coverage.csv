@@ -1,0 +1,4 @@
+task,evaluation_instances,valid_model_outputs,coverage_pct,conditional_macro_f1,conditional_accuracy,coverage_aware_macro_f1,coverage_aware_accuracy
+relevance,7131,7131,100.0,0.6984,0.8143,0.6984,0.8143
+aspect,6075,4790,78.85,0.8079,0.8163,0.7111,0.6436
+polarity,6075,5114,84.18,0.7267,0.8467,0.6468,0.7128

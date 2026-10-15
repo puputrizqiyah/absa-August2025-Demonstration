@@ -1,0 +1,5 @@
+gold_label,predicted_Negatif,predicted_Netral,predicted_Positif,total
+Negatif,3483,105,42,3630
+Netral,315,605,17,937
+Positif,220,85,242,547
+Total,4018,795,301,5114

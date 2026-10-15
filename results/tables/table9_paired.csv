@@ -1,0 +1,16 @@
+task,comparison,kind,unit,delta,ci_low,ci_high,test,p_value,p_bootstrap,stat_b,stat_c,p_holm,survives_holm
+relevance,TF-IDF + LR (balanced) vs TF-IDF + LR,instance,out-of-fold instance,0.1668277455163083,0.1481447453096564,0.18556117599042632,"paired bootstrap (10,000) + exact McNemar",0.000780162476385837,0.0,500,613,0.008581787240244207,1
+relevance,Character n-gram + LR vs Complement NB,instance,out-of-fold instance,0.027006674652866658,0.011160833866977317,0.04325509935206738,"paired bootstrap (10,000) + exact McNemar",0.002163743386124559,0.0006,121,77,0.020159926340800677,1
+relevance,IndoBERT (fine-tuned) vs TF-IDF + LR,fold,fold,0.20482301135014408,,,Nadeau-Bengio corrected resampled t (df=4),0.002015992634080068,,,,0.020159926340800677,1
+relevance,IndoBERT (fine-tuned) vs TF-IDF + LR (balanced),fold,fold,0.03742142141842684,,,Nadeau-Bengio corrected resampled t (df=4),0.032437784704667266,,,,0.1946267082280036,0
+relevance,IndoBERT (fine-tuned) vs Character n-gram + LR,fold,fold,0.13461283663738322,,,Nadeau-Bengio corrected resampled t (df=4),0.0023537755029736595,,,,0.020159926340800677,1
+aspect,TF-IDF + LR (balanced) vs TF-IDF + LR,instance,out-of-fold instance,0.0025932903385313955,-0.0010228588089040865,0.006282253655202649,"paired bootstrap (10,000) + exact McNemar",0.48802234383086546,0.153,71,62,0.9760446876617309,0
+aspect,Character n-gram + LR vs TF-IDF + LR,instance,out-of-fold instance,0.020011738225629294,0.011831716605528871,0.028322728207532063,"paired bootstrap (10,000) + exact McNemar",2.482584418996393e-06,0.0,381,261,3.47561818659495e-05,1
+aspect,IndoBERT (fine-tuned) vs TF-IDF + LR,fold,fold,0.02311912840234829,,,Nadeau-Bengio corrected resampled t (df=4),0.08388036286440757,,,,0.4194018143220379,0
+aspect,IndoBERT (fine-tuned) vs TF-IDF + LR (balanced),fold,fold,0.020510592598519194,,,Nadeau-Bengio corrected resampled t (df=4),0.12950958689085168,,,,0.45563477971470434,0
+aspect,IndoBERT (fine-tuned) vs Character n-gram + LR,fold,fold,0.0030328837503678318,,,Nadeau-Bengio corrected resampled t (df=4),0.7594285453931303,,,,0.9760446876617309,0
+polarity,TF-IDF + LR (balanced) vs TF-IDF + LR,instance,out-of-fold instance,0.06647540502941629,0.04868234442997245,0.08401395491179477,"paired bootstrap (10,000) + exact McNemar",6.066955691089955e-11,0.0,506,737,9.100433536634932e-10,1
+polarity,TF-IDF + LR vs Complement NB,instance,out-of-fold instance,-0.0062866576911354555,-0.021561908741646166,0.009119457602783721,"paired bootstrap (10,000) + exact McNemar",0.11390869492867609,0.4234,235,201,0.45563477971470434,0
+polarity,IndoBERT (fine-tuned) vs TF-IDF + LR,fold,fold,0.11507554911051995,,,Nadeau-Bengio corrected resampled t (df=4),7.219016269777783e-05,,,,0.0009384721150711118,1
+polarity,IndoBERT (fine-tuned) vs TF-IDF + LR (balanced),fold,fold,0.048163931899988265,,,Nadeau-Bengio corrected resampled t (df=4),0.015117340538071329,,,,0.1058213837664993,0
+polarity,IndoBERT (fine-tuned) vs Character n-gram + LR,fold,fold,0.09451271634870732,,,Nadeau-Bengio corrected resampled t (df=4),0.00010554549625858675,,,,0.001266545955103041,1
