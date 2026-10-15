@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use this benchmark or the gold standard, please cite the article and this deposit."
+title: "Benchmarking the Learnability of Aspect-Based Sentiment Analysis on Indonesian Protest Tweets: data and code"
+type: dataset
+license: CC-BY-4.0
+repository-code: "https://github.com/puputrizqiyah/ABSA-Demonstration-Aug25"
+keywords:
+  - aspect-based sentiment analysis
+  - Indonesian
+  - learnability benchmark
+  - gold standard
+  - class imbalance
+  - coverage-aware evaluation

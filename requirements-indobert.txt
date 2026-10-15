@@ -1,0 +1,4 @@
+# Optional: only needed to re-run the fine-tuned encoder (code/indobert_model.py).
+# Everything else in the deposit runs without torch.
+torch>=2.2
+transformers>=4.40
