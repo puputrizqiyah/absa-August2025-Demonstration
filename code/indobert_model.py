@@ -119,6 +119,8 @@ def main():
     ap.add_argument("--fold", type=int, default=None, help="only this fold (smoke test)")
     ap.add_argument("--device", default=None)
     ap.add_argument("--out", default=str(RESULTS_DIR / "indobert_results.jsonl"))
+    ap.add_argument("--pred-dir", default=str(PREDICTIONS_DIR),
+                    help="where the per-record encoder predictions are written")
     args = ap.parse_args()
 
     import torch
@@ -173,7 +175,7 @@ def main():
                              seed=INDOBERT["seed"], epochs=INDOBERT["epochs"],
                              maxlen=INDOBERT["max_len"], batch=INDOBERT["batch_size"],
                              folds=len(fold_ids)))
-        path = PREDICTIONS_DIR / f"{args.scheme}_{task}_indobert.csv"
+        path = Path(args.pred_dir) / f"{args.scheme}_{task}_indobert.csv"
         path.parent.mkdir(parents=True, exist_ok=True)
         with path.open("w", newline="", encoding="utf-8") as fh:
             w = csv.writer(fh)
