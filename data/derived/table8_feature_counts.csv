@@ -1,0 +1,9 @@
+Textual feature,Tweets,Errors,Error rate (%),Complement rate (%),Chi-square p,Published tweets,Published errors,Published error rate (%)
+Emoji or non-ASCII characters,237,50,21.1,15.1,0.015,237,50,21.1
+Quoted/reported news template (news outlet named),327,68,20.8,15.0,0.006,230,48,20.9
+Informal register markers,2263,290,12.8,17.3,<0.001,2264,290,12.8
+English code-mixing (>=2 distinct function words),89,5,5.6,15.5,0.016,67,5,7.5
+Negation,1857,269,14.5,15.8,0.220,1860,269,14.5
+Question form (?),792,83,10.5,16.2,<0.001,792,83,10.5
+Sarcasm/irony lexical markers,174,20,11.5,15.5,0.186,272,35,12.9
+All tweets (population),5114,784,15.3,,,5114,784,15.3
