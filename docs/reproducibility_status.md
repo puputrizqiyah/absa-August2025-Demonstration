@@ -21,7 +21,7 @@ recorded fold and pooled scores of the run reported in the article.
 | Table 8, population | 5,114 comparator-labelled records, 784 errors, 15.3% | identical |
 | Table 9, all 15 contrasts | Δ macro-F1, 95% interval, p | Δ identical to 4 decimals, intervals within ±0.0005, every p identical (0.488, 0.002, 0.114, 0.032, 0.084, 0.130, 0.759, 0.015 and the < 0.001 entries) |
 | Table 9, Holm-Bonferroni | 8 of 15 contrasts survive | 8 of 15 |
-| Fold sizes vs the recorded encoder run | relevance 1,427 + 4 x 1,426; aspect/polarity 5 x 1,215 | identical, i.e. the encoder in `results/indobert_results.jsonl` was trained on the same five folds as the lexical models, which is what makes the paired contrasts legitimate |
+| Fold sizes vs the recorded encoder run | relevance 1,427 + 4 x 1,426; aspect/polarity 5 x 1,215 | identical, i.e. the encoder in `results/indobert_results.jsonl` was trained on the same five folds as the lexical models, which is what makes the paired contrasts legitimate (see *Encoder fold correspondence* below for how far that rests on construction rather than on re-running the encoder) |
 | Section 3, temporal concentration | 6,334 records (88.8%) in one 24-hour window | identical (10 collection days, 29-31 August 2025 dominant) |
 | Section 3, label distribution | 2,192 / 1,990 / 1,893 aspects; 4,149 / 1,252 / 674 polarities | identical |
 
@@ -47,6 +47,35 @@ Three features reproduce exactly (emoji/non-ASCII 237 / 50 / 21.1, question form
 792 / 83 / 10.5, and the population), and the three features whose definition depends
 only on arithmetic from the published table (informal, negation, code-mixing) agree on
 the error counts and rates.
+
+## Encoder fold correspondence
+
+The recorded encoder run labels its five folds 1 to 5 (`indobert_bench.log` prints
+`fold 1/5 ... acc=0.8886`); the deposited fold files label them 0 to 4. The two agree
+positionally.
+
+- The deposited fold files are exactly what the deposited builder produces. Rebuilding
+  the stratified split from `code/folds.py` (`StratifiedKFold(n_splits=5, shuffle=True,
+  random_state=42)` over the same frame) reproduces the recorded fold of every record:
+  0 mismatches over all 7,131 relevance records and over both 6,075-record subsets. The
+  split is therefore fixed by the seed and the frame order, not redrawn per run.
+- The one fold whose test size differs from its siblings identifies the offset. In the
+  recorded run only fold 1 has 1,427 records (folds 2-5 have 1,426); in the deposit only
+  fold 0 has 1,427 (folds 1-4 have 1,426). Recorded fold k is deposited fold k - 1.
+- `code/make_tables.py` pairs them exactly that way: the encoder's per-fold scores are
+  read in file order (1 to 5) and the per-fold scores of the lexical models in fold-label
+  order (0 to 4), that is position against position. The nine fold-level contrasts of
+  Table 9 are computed on those pairs.
+
+Scope of the claim. The correspondence is established by construction - same splitter,
+same seed, same frame, one-fold size anchor - and not by score agreement. A full re-run
+of the encoder on the deposited folds, which would confirm it by reproducing the five
+per-fold scores in the same order, was not carried out: at the measured throughput the
+run takes about 2.5 hours. The single-fold smoke test that was run gave macro-F1 0.7551
+where the recorded run reports 0.7592 for the fold at that position, a difference of
+0.004. Comparing folds by how hard they are is not a substitute: per-fold SD (0.010 to
+0.021) is of the same order as the fold-to-fold spread, so the ordering of folds by
+difficulty is not stable enough across model families to identify the correspondence.
 
 ## Consequence for the article
 
